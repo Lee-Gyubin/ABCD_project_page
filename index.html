@@ -75,10 +75,10 @@
 
   <!-- TODO: Replace with your paper title and authors -->
   <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+<!--   
+  Favicon and App Icons
+  <link rel="icon" type="image/x-icon" href="static/images/ABCD_page_icon.png">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico"> -->
   
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -100,6 +100,23 @@
   
   <!-- Fonts - Optimized loading -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- MathJax for LaTeX support -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
   <!-- Defer non-critical JavaScript -->
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -241,21 +258,27 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">Adaptive Inference-Time Scaling via Cyclic Diffusion Search</h1>
             <div class="is-size-5 publication-authors">
               <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Gyubin Lee</a><sup>*,1</sup>,</span>
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <a href="https://mlml.kaist.ac.kr/219d50e9-3ef1-8073-b19b-c1e68e8cf905" target="_blank">Truong Nhat Nguyen Bao</a><sup>*,1</sup>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                    <a href="https://jaesikyoon.com/" target="_blank">Jaesik Yoon</a><sup>1,4</sup>
+                    </span>
+                    <span class="author-block">
+                    <a href="https://www.linkedin.com/in/dongwoo-%E2%80%8Dlee-7a5731225/?originalSubdomain=kr" target="_blank">Dongwoo Lee</a><sup>1</sup>, 
+                    <a href="https://minsuukim.github.io/" target="_blank">Minsu Kim</a><sup>1,2</sup>, 
+                    <a href="https://yoshuabengio.org/" target="_blank">Yoshua Bengio</a><sup>2</sup>, 
+                    <a href="https://mlml.kaist.ac.kr/sungjinahn" target="_blank">Sungjin Ahn</a><sup>1,3</sup>
                   </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
                     <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
+                    <span class="author-block"><sup>1</sup>KAIST, <sup>2</sup>Mila, <sup>3</sup>NYU, <sup>4</sup>SAP<br>NeurIPS 2025</span>
                     <!-- TODO: Remove this line if no equal contribution -->
                     <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
                   </div>
@@ -264,7 +287,7 @@
                     <div class="publication-links">
                          <!-- TODO: Update with your arXiv paper ID -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="https://arxiv.org/pdf/2505.14036.pdf" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -297,7 +320,7 @@
 
                 <!-- TODO: Update with your arXiv paper ID -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://arxiv.org/abs/2505.14036" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -314,23 +337,19 @@
 </section>
 
 
-<!-- Teaser video-->
+<!-- Teaser image-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
+      <img src="static/images/ABCD_main_fig.png" alt="ABCD Main Figure" id="tree" style="width: 100%; height: auto;">
+      <!-- TODO: Replace with your image description -->
       <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+        
       </h2>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End teaser image -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -341,116 +360,105 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Diffusion models have demonstrated strong generative capabilities across domains ranging from image synthesis to complex reasoning tasks. However, most inference-time scaling methods rely on fixed denoising schedules, limiting their ability to allocate computation based on instance difficulty or task-specific demands adaptively. We introduce the challenge of adaptive inference-time scaling—dynamically adjusting computational effort during inference—and propose Adaptive Bi-directional Cyclic Diffusion (ABCD), a flexible, search-based inference framework. ABCD refines outputs through bi-directional diffusion cycles while adaptively controlling exploration depth and termination. It comprises three components: Cyclic Diffusion Search, Automatic Exploration-Exploitation Balancing, and Adaptive Thinking Time. Experiments show that ABCD improves performance across diverse tasks while maintaining computational efficiency.
+          </p>
+        </div>
+        
+        <h2 class="title is-3" style="margin-top: 3rem;">Background</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <p>
+            Diffusion Models show strong generative power. However, most inference-time scaling methods rely on fixed denoising schedules, limiting their ability to adapt computation based on instance difficulty or task-specific demands. This rigidity restricts performance on challenging inputs and can lead to inefficient spending of computation.
+          </p>
+          <p>
+            <strong>Proposed Solution:</strong> We introduce the challenge of adaptive inference-time scaling—dynamically adjusting computational effort during inference—and propose the Adaptive Bi-directional Cyclic Diffusion (ABCD) framework.
+          </p>
+        
+        <h2 class="title is-3" style="margin-top: 3rem;">Adaptive Bi-directional Cyclic Diffusion (ABCD)</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <!-- <p>
+            ABCD is a novel inference-time scaling framework that adaptively allocates computational resources based on instance difficulty and task requirements. It employs a bi-directional cyclic diffusion process, allowing for iterative refinement of outputs through multiple cycles of denoising and noise addition. The framework consists of three key components: Cyclic Diffusion Search, which explores the solution space through repeated diffusion cycles; Automatic Exploration-Exploitation Balancing, which dynamically adjusts the search strategy based on intermediate results; and Adaptive Thinking Time, which allocates computation time based on the complexity of the input instance. This approach enables ABCD to effectively balance performance and efficiency across various tasks, demonstrating significant improvements in generative quality while maintaining computational feasibility.
+          </p> -->
+          
+          <p>
+            ABCD reframes diffusion model inference as a flexible and efficient search process. The method is composed of three components, which operate in sequence during each iteration (or cycle) of the search:
+          </p>
+
+          <!-- <h3 class="title is-4" style="margin-top: 2rem;">Method Components</h3> -->
+          
+          <h4 class="title is-5"><strong>1. Cyclic Diffusion Search (CDS)</strong></h4>
+          <p>
+            Enables iterative refinement by cycling bi-directionally through the diffusion timeline. Each cycle consists of three stages:
+          </p>
+          <ul>
+            <li><strong>Denoising:</strong> $N$ particles are quickly denoised from $t=T$ to $t=0$ using accelerated DDIM, yielding initial candidates $x_0$</li>
+            <li><strong>Selection and Copy:</strong> Top-$K$ particles are selected using a reward function and replicated $J$ times</li>
+            <li><strong>Noising:</strong> $K \times J$ particles are sent back to go-back timestep $t'$ via forward process $q(x_{t'}|x_0)$</li>
+          </ul>
+          
+          <h4 class="title is-5"><strong>2. Automatic Exploration-Exploitation Balancing (AEEB)</strong></h4>
+          <p>
+            Dynamically controls exploration depth using a "temperature pool" $\mathcal{T}=(t_1, t_2, ..., t_M)$ instead of fixed go-back timesteps. $K \times J$ replicas are distributed across all temperatures, allowing parallel exploration at multiple depths. Suboptimal temperatures are automatically discarded in subsequent Top-$K$ selection.
+          </p>
+          
+          <h4 class="title is-5"><strong>3. Adaptive Thinking Time (ATT)</strong></h4>
+          <p>
+            Provides principled stopping criterion by monitoring solution quality evolution. Termination occurs when all Top-$K$ particles originate from the lowest temperature ($t=0$) for $\kappa$ consecutive cycles, indicating that global exploration is no longer needed and the search has converged to local refinement.
+          </p>
+        </div>
+        <!-- Pseudo Code image -->
+        <div class="has-text-centered" style="margin-top: 2rem;">
+          <img src="static/images/ABCD_Pseudo.png" alt="ABCD Pseudo Code" style="width: 100%; height: auto; max-width: 800px;">
+        </div>
+        
+        <div class="has-text-centered">
+          <h2 class="title is-3" style="margin-top: 3rem;">Experimental Results</h2>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            ABCD's effectiveness is demonstrated across a diverse suite of tasks, showing superior performance and computational efficiency compared to fixed-schedule baselines (Base Diffusion, BoN, SMC, BS, SoP).
+          </p>
+          
+          <h3 class="title is-4" style="margin-top: 2rem;">Key Experimental Findings</h3>
+          
+          <h4 class="title is-5"><strong>Mixture of Gaussian (MoG)</strong></h4>
+          <p>
+            Proof-of-concept demonstrating the necessity of multiple go-back temperature pools. ABCD achieves <strong>100% success rate</strong> on both locally-clustered and distant-mode datasets, proving the value of adaptive exploration and early stopping.
+          </p>
+          
+          <h4 class="title is-5"><strong>Sudoku Puzzle Completion</strong></h4>
+          <p>
+            A logical reasoning benchmark requiring global exploration and local refinement. ABCD consistently outperforms all baselines, achieving <strong>100% accuracy</strong> on harder test sets while baselines (e.g., SoP) reach only 95.5%. It maintains stable accuracy across all difficulty levels.
+          </p>
+          
+          <h4 class="title is-5"><strong>Pixel Maze Path Generation (OOD)</strong></h4>
+          <p>
+            Tests generalization to unseen, larger maze structures. ABCD achieves near-perfect success rates significantly faster than all baselines. The performance gap widens as maze size increases (Size 11-15), highlighting superior adaptive exploration capabilities.
+          </p>
+          
+          <h4 class="title is-5"><strong>Molecular 3D Structure Prediction (QM9)</strong></h4>
+          <p>
+            Requires generating physically and chemically valid 3D conformations. ABCD significantly outperforms all baselines, achieving peak molecular stability of <strong>~0.99</strong> (vs. SoP's 0.94), emphasizing robustness in complex generation tasks.
+          </p>
+          
+          <h4 class="title is-5"><strong>Text-to-Image Generation</strong></h4>
+          <p>
+            Evaluated on high-dimensional outputs using compressibility and aesthetic scores. ABCD consistently outperforms BoN and SoP, efficiently identifying high-reward samples. ABCD achieves the same compression level that SoP reaches at 272s in less than a quarter of the time.
+          </p>
+          
+          <h3 class="title is-4" style="margin-top: 2rem;">Ablation Studies</h3>
+          
+          <h4 class="title is-5"><strong>Adaptive Thinking Time (ATT) Efficiency</strong></h4>
+          <p>
+            The adaptive terminal condition shows superior time-success trade-offs compared to fixed-cycle inference by stopping early on simple puzzles and allocating extra iterations to hard ones. ABCD correctly scales compute with problem difficulty, allocating more thinking cycles to harder Sudoku puzzles (fewer givens).
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
+<!-- End paper content -->
 
 
 <!-- Paper poster -->
@@ -480,12 +488,14 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+      <pre id="bibtex-code"><code>@misc{lee2025adaptiveinferencetimescalingcyclic,
+      title={Adaptive Inference-Time Scaling via Cyclic Diffusion Search}, 
+      author={Gyubin Lee and Truong Nhat Nguyen Bao and Jaesik Yoon and Dongwoo Lee and Minsu Kim and Yoshua Bengio and Sungjin Ahn},
+      year={2025},
+      eprint={2505.14036},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2505.14036}, 
 }</code></pre>
     </div>
 </section>
