@@ -417,42 +417,117 @@
         </div>
         <div class="content has-text-justified">
           <p>
-            ABCD's effectiveness is demonstrated across a diverse suite of tasks, showing superior performance and computational efficiency compared to fixed-schedule baselines (Base Diffusion, BoN, SMC, BS, SoP).
+            ABCD's effectiveness is demonstrated across a diverse suite of challenging tasks, showcasing superior performance and computational efficiency compared to fixed-schedule baselines: Standard base Diffusion, Best-of-N (BoN), Sequential Monte Carlo (SMC), Beam Search (BS), and Search over Path (SoP).
           </p>
-          
+          <figure class="has-text-centered" style="margin:0.1rem 0 0.6rem 0; max-width:800px; margin-left:auto; margin-right:auto;">
+            <img id="exp-overview-fig" src="static/images/experiment_overall.png" alt="Experimental tasks overview" style="width:100%; height:auto; display:block;">
+            <figcaption class="has-text-centered is-size-7" style="margin-top:0.1rem;">Figure: Experimental tasks overview</figcaption>
+          </figure>
+          <p>
+            The experiments cover a wide range of tasks, including the Mixture of Gaussian (MoG) proof-of-concept, Sudoku Puzzle Completion, Pixel Maze Path Generation, OGBench Point Maze Navigation, QM9 Molecular 3D Structure Prediction, and Text-to-Image Generation. Overall, ABCD consistently achieves significant gains in performance and efficiency across all domains.
+          </p>
+          <!-- <figure class="has-text-centered" style="margin:0.1rem 0 0.6rem 0; max-width:800px; margin-left:auto; margin-right:auto;">
+            <img id="exp-overview-fig" src="static/images/experiment_overall.png" alt="Experimental tasks overview" style="width:100%; height:auto; display:block;">
+            <figcaption class="has-text-centered is-size-7" style="margin-top:0.1rem;">Figure: Experimental overview (replace caption)</figcaption>
+          </figure> -->
+
           <h3 class="title is-4" style="margin-top: 2rem;">Key Experimental Findings</h3>
           
-          <h4 class="title is-5"><strong>Mixture of Gaussian (MoG)</strong></h4>
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Mixture of Gaussian (MoG)</strong></h4>
           <p>
-            Proof-of-concept demonstrating the necessity of multiple go-back temperature pools. ABCD achieves <strong>100% success rate</strong> on both locally-clustered and distant-mode datasets, proving the value of adaptive exploration and early stopping.
+            The Mixture of Gaussian (MoG) toy task serves as a proof-of-concept to illustrate the necessity of multiple go-back noise levels and an adaptive terminal condition during iterative refinement. ABCD achieved a <strong>100% success rate</strong> and minimal final distance on both Dataset 1 (locally clustered modes) and Dataset 2 (distant modes).
           </p>
+          <div class="has-text-centered" style="margin-top:1rem; margin-bottom:1rem;">
+            <figure id="fig-mog-1" style="display:block; margin:0.5rem auto; max-width:80%;">
+              <img src="static/images/MoG_D1_comparison.png" alt="MoG Figure 1" style="width:100%; height:auto; display:block;">
+              <figcaption class="has-text-centered is-size-7" style="margin-top:0.35rem;">Figure 1: Compare different go-back step size on Dataset 1 (locally clustered modes).</figcaption>
+            </figure>
+            <figure id="fig-mog-2" style="display:block; margin:0.5rem auto; max-width:80%;">
+              <img src="static/images/MoG_D2_comparison.png" alt="MoG Figure 2" style="width:100%; height:auto; display:block;">
+              <figcaption class="has-text-centered is-size-7" style="margin-top:0.35rem;">Figure 2: Compare different go-back step size on Dataset 2 (distant modes).</figcaption>
+            </figure>
+            <figure id="fig-mog-3" style="display:block; margin:0.5rem auto; max-width:100%;">
+              <img src="static/images/MoG_table.png" alt="MoG Figure 3" style="width:100%; height:auto; display:block;">
+            </figure>
+          </div>
+          <ul style="margin-top:0.5rem; text-align: left;">
+            <li><strong>Small go-back fails:</strong> Small GB (e.g., GB 20) cannot escape poor initial predictions on complex Dataset 2.</li>
+            <li><strong>Large go-back risks:</strong> Large GB can over-cycle and diverge on easier Dataset 1, losing useful information.</li>
+            <li><strong>Adaptive balance:</strong> ABCD adaptively balances exploration and exploitation, enabling effective scaling.</li>
+          </ul>
           
-          <h4 class="title is-5"><strong>Sudoku Puzzle Completion</strong></h4>
-          <p>
+          <h4 class="title is-4" style="margin-top: 2rem;">Overall Performance on Key Tasks</h4>
+          <p>ABCD consistently delivered state-of-the-art results across various domains, showcasing superior time-accuracy trade-offs:</p>
+
+          <figure class="has-text-centered" style="margin:0.1rem 0 0.6rem 0; max-width:800px; margin-left:auto; margin-right:auto;">
+            <img id="exp-overview-fig" src="static/images/ABCD_full_results.png" alt="Experimental results overview" style="width:100%; height:auto; display:block;">
+            <figcaption class="has-text-centered is-size-7" style="margin-top:0.1rem;">Figure: Experimental results overview</figcaption>
+          </figure>
+
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Sudoku Puzzle Completion</strong></h4>
+          <p style="margin-top:0.25rem;">
             A logical reasoning benchmark requiring global exploration and local refinement. ABCD consistently outperforms all baselines, achieving <strong>100% accuracy</strong> on harder test sets while baselines (e.g., SoP) reach only 95.5%. It maintains stable accuracy across all difficulty levels.
           </p>
           
-          <h4 class="title is-5"><strong>Pixel Maze Path Generation (OOD)</strong></h4>
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Pixel Maze Path Generation (OOD)</strong></h4>
           <p>
             Tests generalization to unseen, larger maze structures. ABCD achieves near-perfect success rates significantly faster than all baselines. The performance gap widens as maze size increases (Size 11-15), highlighting superior adaptive exploration capabilities.
           </p>
           
-          <h4 class="title is-5"><strong>Molecular 3D Structure Prediction (QM9)</strong></h4>
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Molecular 3D Structure Prediction (QM9)</strong></h4>
           <p>
             Requires generating physically and chemically valid 3D conformations. ABCD significantly outperforms all baselines, achieving peak molecular stability of <strong>~0.99</strong> (vs. SoP's 0.94), emphasizing robustness in complex generation tasks.
           </p>
           
-          <h4 class="title is-5"><strong>Text-to-Image Generation</strong></h4>
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Text-to-Image Generation</strong></h4>
           <p>
             Evaluated on high-dimensional outputs using compressibility and aesthetic scores. ABCD consistently outperforms BoN and SoP, efficiently identifying high-reward samples. ABCD achieves the same compression level that SoP reaches at 272s in less than a quarter of the time.
           </p>
-          
-          <h3 class="title is-4" style="margin-top: 2rem;">Ablation Studies</h3>
-          
-          <h4 class="title is-5"><strong>Adaptive Thinking Time (ATT) Efficiency</strong></h4>
+
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>OGBench Point Maze Navigation</strong></h4>
           <p>
-            The adaptive terminal condition shows superior time-success trade-offs compared to fixed-cycle inference by stopping early on simple puzzles and allocating extra iterations to hard ones. ABCD correctly scales compute with problem difficulty, allocating more thinking cycles to harder Sudoku puzzles (fewer givens).
+            A long-horizon planning task (1000+ steps). ABCD consistently surpassed all baselines and was the only method to achieve perfect performance on both Large and Giant mazes.
           </p>
+          
+
+          <h3 class="title is-4" style="margin-top: 2rem;">Ablation Studies</h3>
+          <p>Ablation studies confirm the effectiveness and necessity of ABCD's adaptive components. Key findings are summarized below.</p>
+
+          <figure class="has-text-centered" style="margin:0.1rem 0 0.6rem 0; max-width:800px; margin-left:auto; margin-right:auto;">
+            <img id="exp-overview-fig" src="static/images/Ablation_overall.png" alt="Ablation studies overview" style="width:100%; height:auto; display:block;">
+            <figcaption class="has-text-centered is-size-7" style="margin-top:0.1rem;">Figure: Ablation studies overview</figcaption>
+          </figure>
+          
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Task-Specific Optimal Exploration Depth (a)~(b)</strong></h4>
+          <p>
+            The optimal go-back noise level for iterative refinement varies substantially by task. For example, the best go-back step size was observed to be approximately 3/4 of total denoising steps for OGBench, 2/5 for Sudoku, and 4/5 for Pixel Maze. This variation motivates ABCD's Automatic Exploration–Exploitation Balancing (AEEB), which probes multiple exploration depths in parallel to find task-specific optimal depths.
+          </p>
+
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Adaptive Terminal Condition Necessity (c)</strong></h4>
+          <p>
+            An ablation on terminal criteria shows that using an adaptive stopping rule substantially improves overall time–success trade-offs by avoiding wasted computation on easy instances while allocating additional cycles to difficult ones. The adaptive terminal condition therefore plays a critical role in ABCD's efficiency.
+          </p>
+
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Dynamic Compute Allocation (Adaptive Thinking Time) (d)</strong></h4>
+          <p>
+            ABCD's Adaptive Thinking Time (ATT) criterion automatically scales computational effort to instance difficulty. Harder instances (smaller number provided case) receive more thinking cycles while simpler instances (more number provided case) terminate earlier, producing consistently superior time–success trade-offs compared to fixed-cycle baselines.
+          </p>
+
+          <h4 class="title is-5" style="margin-bottom:0.5rem;"><strong>Adaptive Exploration and Refinement Mechanism</strong></h4>
+          <figure class="has-text-centered" style="margin:0.1rem 0 0.6rem 0; max-width:800px; margin-left:auto; margin-right:auto;">
+            <img id="exp-overview-fig" src="static/images/particle_sources.png" alt="Ablation studies overview" style="width:100%; height:auto; display:block;">
+            <figcaption class="has-text-centered is-size-7" style="margin-top:0.1rem;">Figure: Origin of the Top-10 Selected Particles at Each Cycle</figcaption>
+          </figure>
+          
+          <p>
+            The image describes the mechanism by which the Adaptive Bi-directional Cyclic Diffusion (ABCD) model dynamically controls the balance between global exploration and local refinement across inference cycles. This mechanism is crucial for achieving high performance with optimal computational efficiency, especially in complex reasoning tasks like Sudoku.  
+          </p>
+          <ul style="margin-top:0.5rem; text-align: left;">
+            <li><strong>Behavior Varies by Difficulty:</strong> The search behavior varies significantly across Sudoku cases. Harder instances (fewer provided clues) generally tend to require a longer search (more cycles).</li>
+            <li><strong>Dynamic Exploration/Exploitation:</strong> Early Iterations focus on large modifications (corresponding to higher go-back temperatures/larger noise addition), emphasizing global exploration. Later Cycles concentrate on smaller refinements (corresponding to lower go-back temperatures/less noise addition), shifting toward local exploitation.</li>
+            <li><strong>Instance-Specific Graph:</strong> This dynamic adjustment means the model automatically expands and adjusts the diffusion generation process, resulting in a different generation graph for each final $x_0$ prediction.</li>
+          </ul>
+
         </div>
       </div>
     </div>
