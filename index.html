@@ -455,17 +455,17 @@
             <figcaption class="has-text-centered is-size-7" style="margin-top:0.1rem;">Figure: Ablation studies overview</figcaption>
           </figure>
           
-          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Task-Specific Optimal Exploration Depth (a)~(b)</strong></h4>
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>(a)~(b) Task-Specific Optimal Exploration Depth</strong></h4>
           <p>
             The optimal go-back noise level for iterative refinement varies substantially by task. For example, the best go-back step size was observed to be approximately 3/4 of total denoising steps for OGBench, 2/5 for Sudoku, and 4/5 for Pixel Maze. This variation motivates ABCD's Automatic Exploration–Exploitation Balancing (AEEB), which probes multiple exploration depths in parallel to find task-specific optimal depths.
           </p>
 
-          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Adaptive Terminal Condition Necessity (c)</strong></h4>
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>(c) Adaptive Terminal Condition Necessity</strong></h4>
           <p>
             An ablation on terminal criteria shows that using an adaptive stopping rule substantially improves overall time–success trade-offs by avoiding wasted computation on easy instances while allocating additional cycles to difficult ones. The adaptive terminal condition therefore plays a critical role in ABCD's efficiency.
           </p>
 
-          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>Dynamic Compute Allocation (Adaptive Thinking Time) (d)</strong></h4>
+          <h4 class="title is-5" style="margin-bottom:0.25rem;"><strong>(d) Dynamic Compute Allocation (Adaptive Thinking Time)</strong></h4>
           <p>
             ABCD's Adaptive Thinking Time (ATT) criterion automatically scales computational effort to instance difficulty. Harder instances (smaller number provided case) receive more thinking cycles while simpler instances (more number provided case) terminate earlier, producing consistently superior time–success trade-offs compared to fixed-cycle baselines.
           </p>
